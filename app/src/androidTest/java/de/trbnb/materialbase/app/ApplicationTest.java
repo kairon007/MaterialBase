@@ -1,4 +1,4 @@
-package de.trbnb.materialbase;
+package de.trbnb.materialbase.app;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
