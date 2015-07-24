@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MaterialBase</string>
+    <string name="app_name">ProgressBarTest</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_test">TestActivity</string>
+    
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
