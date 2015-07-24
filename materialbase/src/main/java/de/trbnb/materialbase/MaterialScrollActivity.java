@@ -1,5 +1,7 @@
 package de.trbnb.materialbase;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -56,7 +58,6 @@ public abstract class MaterialScrollActivity<T extends View & Scrollable> extend
         myScrollY = Math.max(-toolbarHeight, Math.min(0, myScrollY + diff));
 
         toolbar.setTranslationY(myScrollY);
-        toolbar.setTitle(toolbar.getTranslationY() + "");
 
         oldScrollY = scrollY;
 
@@ -65,22 +66,33 @@ public abstract class MaterialScrollActivity<T extends View & Scrollable> extend
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-        /*if (scrollState == ScrollState.UP) {
-            if (toolbarIsShown()) {
-                hideToolbar();
-            }
-        } else if (scrollState == ScrollState.DOWN) {
-            if (toolbarIsHidden()) {
-                showToolbar();
-            }
-        }*/
-        /*int middle = -toolbar.getHeight() / 2;
-        if(toolbar.getTranslationY() > middle){
-            showToolbar();
-        } else {
-            hideToolbar();
+        if(oldScrollY < 0){
+            return;
         }
-        myScrollY = (int) toolbar.getTranslationY();*/
+
+        int middle = -toolbar.getHeight() / 2;
+        ValueAnimator animator;
+        if(toolbar.getTranslationY() > middle){
+            animator = showToolbar();
+        } else {
+            animator = hideToolbar();
+        }
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {}
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                myScrollY = (int) toolbar.getTranslationY();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        });
     }
 
     @Override

@@ -134,7 +134,7 @@ public class MaterialActivity extends AppCompatActivity {
     /**
      * animates the Toolbar so it disappears off the screen
      */
-    public void hideToolbar(){
+    public ValueAnimator hideToolbar(){
         final ValueAnimator animator = ValueAnimator.ofFloat(toolbar.getTranslationY(), -toolbar.getHeight());
         animator.setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -144,12 +144,13 @@ public class MaterialActivity extends AppCompatActivity {
             }
         });
         animator.start();
+        return animator;
     }
 
     /**
      * lets the Toolbar appear from the top of the screen again
      */
-    public void showToolbar(){
+    public ValueAnimator showToolbar(){
         final ValueAnimator animator = ValueAnimator.ofFloat(toolbar.getTranslationY(), 0);
         animator.setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -159,6 +160,7 @@ public class MaterialActivity extends AppCompatActivity {
             }
         });
         animator.start();
+        return animator;
     }
 
     public boolean toolbarIsShown() {
