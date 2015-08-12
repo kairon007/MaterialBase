@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 
+import de.trbnb.materialbase.activities.MaterialActivity;
+
 /**
  * Created by thorben on 20.07.15.
  */
@@ -17,7 +19,7 @@ public class MaterialDrawerActivity extends MaterialActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        drawerLayout = findView(R.id.drawer);
+        //drawerLayout = findView(R.id.drawer);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, getToolbar(), R.string.open, R.string.close);
     }
 
