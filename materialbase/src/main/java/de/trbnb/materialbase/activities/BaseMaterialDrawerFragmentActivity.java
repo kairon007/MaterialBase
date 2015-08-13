@@ -1,9 +1,11 @@
 package de.trbnb.materialbase.activities;
 
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.WindowManager;
 
 import de.trbnb.materialbase.R;
@@ -18,6 +20,8 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
     private DrawerLayout navigationDrawer;
     private NavigationView navigationView;
 
+    private ActionBarDrawerToggle drawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,28 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
 
         navigationDrawer = (DrawerLayout) findViewById(R.id.nav_drawer);
         navigationView = (NavigationView) findViewById(R.id.navigation);
+    }
+
+    @Override
+    protected void onCreated() {
+        super.onCreated();
+
+        drawerToggle = new ActionBarDrawerToggle(this, navigationDrawer, getToolbar(), R.string.open, R.string.close);
+        navigationDrawer.setDrawerListener(drawerToggle);
+
+        drawerToggle.syncState();
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override

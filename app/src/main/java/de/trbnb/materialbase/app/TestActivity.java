@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import de.trbnb.materialbase.activities.MaterialRecyclerActivity;
+import de.trbnb.materialbase.activities.MaterialDrawerRecyclerActivity;
 
-public class TestActivity extends MaterialRecyclerActivity {
+public class TestActivity extends MaterialDrawerRecyclerActivity {
 
     @Override
     protected void onCreated() {
