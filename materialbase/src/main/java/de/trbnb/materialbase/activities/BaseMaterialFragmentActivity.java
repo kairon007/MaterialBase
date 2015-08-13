@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -36,7 +37,11 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //super.setContentView(R.layout.simple_frame);
+
+        int layoutId = getContentLayoutId();
+        if(layoutId != 0){
+            super.setContentView(layoutId);
+        }
 
         if(savedInstanceState != null){
             fragment = (T) getSupportFragmentManager().findFragmentByTag(MaterialFragment.class.getName());
@@ -47,7 +52,7 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(android.R.id.content, fragment, MaterialFragment.class.getName())
+                    .add(getContentFrameId(), fragment, MaterialFragment.class.getName())
                     .commit();
         }
 
@@ -57,6 +62,15 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
                 onCreated();
             }
         });
+    }
+
+    protected int getContentLayoutId(){
+        return 0;
+    }
+
+    @IdRes
+    protected int getContentFrameId(){
+        return android.R.id.content;
     }
 
     protected void onCreated(){
@@ -195,15 +209,15 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
         }
     }
 
-    private int getDarkerColor(int color){
+    protected int getDarkerColor(int color){
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
 
         return Color.rgb(
-                (int) (r * 0.8),
-                (int) (g * 0.8),
-                (int) (b * 0.8)
+                (int) (r * 0.6),
+                (int) (g * 0.6),
+                (int) (b * 0.6)
         );
     }
 
