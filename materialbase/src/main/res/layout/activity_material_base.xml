@@ -17,7 +17,8 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/abc_action_bar_default_height_material"
+                android:minHeight="@dimen/abc_action_bar_default_height_material"
                 android:background="?colorPrimary"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
