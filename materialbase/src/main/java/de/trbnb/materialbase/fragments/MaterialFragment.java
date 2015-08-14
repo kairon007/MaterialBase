@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import de.trbnb.materialbase.DrawerLockMode;
 import de.trbnb.materialbase.R;
 
 /**
@@ -121,6 +122,7 @@ public class MaterialFragment extends Fragment {
         removeDrawerView();
 
         params.gravity = GravityCompat.END;
+        view.setFitsSystemWindows(true);
         drawerView = view;
         drawerLayout.addView(view, params);
     }
@@ -172,6 +174,10 @@ public class MaterialFragment extends Fragment {
         return toolbar;
     }
 
+    public DrawerLayout getDrawerLayout() {
+        return drawerLayout;
+    }
+
     public FloatingActionButton getFloatingActionButton() {
         return floatingActionButton;
     }
@@ -203,5 +209,17 @@ public class MaterialFragment extends Fragment {
             });
             animator.start();
         }
+    }
+
+    public void openDrawer(){
+        drawerLayout.openDrawer(GravityCompat.END);
+    }
+
+    public void closeDrawer(){
+        drawerLayout.closeDrawer(GravityCompat.END);
+    }
+
+    public void setDrawerLockMode(@DrawerLockMode int lockMode){
+        drawerLayout.setDrawerLockMode(lockMode);
     }
 }

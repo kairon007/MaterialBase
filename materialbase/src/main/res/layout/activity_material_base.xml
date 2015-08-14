@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorlayout"
@@ -20,7 +21,9 @@
                 android:layout_height="@dimen/abc_action_bar_default_height_material"
                 android:minHeight="@dimen/abc_action_bar_default_height_material"
                 android:background="?colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:theme="?toolbarTheme"
+                app:popupTheme="?toolbarPopupTheme"/>
 
         </android.support.design.widget.AppBarLayout>
 

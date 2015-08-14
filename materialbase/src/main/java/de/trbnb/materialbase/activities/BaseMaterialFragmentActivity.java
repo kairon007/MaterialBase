@@ -24,7 +24,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
+import de.trbnb.materialbase.DrawerLockMode;
 import de.trbnb.materialbase.fragments.MaterialFragment;
 
 /**
@@ -37,6 +39,13 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(Build.VERSION.SDK_INT >= 21){
+            getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+            );
+        }
 
         int layoutId = getContentLayoutId();
         if(layoutId != 0){
@@ -164,6 +173,10 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
         return getFragment().getAppBarLayout();
     }
 
+    public DrawerLayout getDrawerLayout(){
+        return getFragment().getDrawerLayout();
+    }
+
     public FloatingActionButton getFloatingActionButton(){
         return getFragment().getFloatingActionButton();
     }
@@ -205,7 +218,7 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
 
     public void setStatusBarColor(int color){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(getDarkerColor(color));
+            getDrawerLayout().setStatusBarBackgroundColor(color);
         }
     }
 
@@ -227,5 +240,17 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
 
     public Bitmap getTaskDescriptionIcon(){
         return null;
+    }
+
+    public void openDrawer(){
+        fragment.openDrawer();
+    }
+
+    public void closeDrawer(){
+        fragment.closeDrawer();
+    }
+
+    public void setDrawerLockMode(@DrawerLockMode int lockMode){
+        fragment.setDrawerLockMode(lockMode);
     }
 }
