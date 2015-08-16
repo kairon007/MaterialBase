@@ -1,5 +1,6 @@
 package de.trbnb.materialbase.activities;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import de.trbnb.materialbase.fragments.MaterialRecyclerFragment;
@@ -16,5 +17,9 @@ public class MaterialRecyclerActivity extends BaseMaterialFragmentActivity<Mater
 
     public RecyclerView getRecyclerView(){
         return getFragment().getRecyclerView();
+    }
+
+    public SwipeRefreshLayout getSwipeRefreshLayout() {
+        return getFragment().getSwipeRefreshLayout();
     }
 }

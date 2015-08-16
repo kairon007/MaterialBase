@@ -26,6 +26,7 @@ public class TestActivity extends MaterialDrawerRecyclerActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(getCoordinatorLayout(), "Hello Text", Snackbar.LENGTH_SHORT).show();
+                getSwipeRefreshLayout().setRefreshing(false);
             }
         });
 
