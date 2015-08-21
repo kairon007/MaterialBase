@@ -3,12 +3,12 @@ package de.trbnb.materialbase.activities;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.View;
 
+import de.trbnb.library.AccountNavigationView;
 import de.trbnb.materialbase.DrawerLockMode;
 import de.trbnb.materialbase.R;
 import de.trbnb.materialbase.fragments.MaterialFragment;
@@ -20,7 +20,7 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
     extends BaseMaterialFragmentActivity<T> {
 
     private DrawerLayout navigationDrawer;
-    private NavigationView navigationView;
+    private AccountNavigationView navigationView;
 
     private ActionBarDrawerToggle drawerToggle;
 
@@ -29,7 +29,7 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
         super.onCreate(savedInstanceState);
 
         navigationDrawer = (DrawerLayout) findViewById(R.id.nav_drawer);
-        navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView = (AccountNavigationView) findViewById(R.id.navigation);
     }
 
     @Override
@@ -75,7 +75,7 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
         return R.layout.activity_drawer;
     }
 
-    public NavigationView getNavigationView() {
+    public AccountNavigationView getNavigationView() {
         return navigationView;
     }
 
