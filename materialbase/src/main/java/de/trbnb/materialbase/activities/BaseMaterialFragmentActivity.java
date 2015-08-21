@@ -37,7 +37,7 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
     private T fragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if(Build.VERSION.SDK_INT >= 21){
@@ -68,7 +68,7 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                onCreated();
+                onCreated(savedInstanceState);
             }
         });
     }
@@ -82,7 +82,7 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
         return android.R.id.content;
     }
 
-    protected void onCreated(){
+    protected void onCreated(Bundle savedInstanceState){
         setSupportActionBar(getToolbar());
         Drawable drawable = getToolbar().getBackground();
 
@@ -182,7 +182,11 @@ public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> e
     }
 
     public void setPrimaryColorRes(@ColorRes int colorRes, boolean animate){
-        setPrimaryColor(getResources().getColor(colorRes), animate);
+        if(Build.VERSION.SDK_INT >= 23) {
+            setPrimaryColor(getColor(colorRes), animate);
+        } else {
+            setPrimaryColor(getResources().getColor(colorRes), animate);
+        }
     }
 
     public void setPrimaryColor(int color, final boolean animate){

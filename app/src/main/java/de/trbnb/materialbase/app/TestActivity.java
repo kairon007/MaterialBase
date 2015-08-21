@@ -1,6 +1,7 @@
 package de.trbnb.materialbase.app;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +14,8 @@ import de.trbnb.materialbase.activities.MaterialDrawerRecyclerActivity;
 public class TestActivity extends MaterialDrawerRecyclerActivity {
 
     @Override
-    protected void onCreated() {
-        super.onCreated();
+    protected void onCreated(Bundle savedInstanceState) {
+        super.onCreated(savedInstanceState);
 
         //TextView textView = new TextView(this);
         //setContentView(textView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));

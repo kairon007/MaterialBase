@@ -33,8 +33,8 @@ public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragm
     }
 
     @Override
-    protected void onCreated() {
-        super.onCreated();
+    protected void onCreated(Bundle savedInstanceState) {
+        super.onCreated(savedInstanceState);
 
         getDrawerLayout().setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
