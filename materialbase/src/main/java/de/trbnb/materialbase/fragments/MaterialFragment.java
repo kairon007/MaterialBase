@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 
 import de.trbnb.materialbase.DrawerLockMode;
 import de.trbnb.materialbase.R;
+import de.trbnb.materialbase.behavior.AppBarLayoutBahavior;
 
 /**
  * Created by Thorben on 11.08.2015.
@@ -51,6 +52,9 @@ public class MaterialFragment extends Fragment {
         toolbar = findViewById(R.id.toolbar);
         floatingActionButton = findViewById(R.id.fab);
 
+        // fix for NullPointerException on Snackbar touch
+        fixAppBarLayout();
+
         View innerView = onCreateInnerView(inflater, coordinatorLayout, savedInstanceState);
 
         if(innerView != null){
@@ -64,6 +68,14 @@ public class MaterialFragment extends Fragment {
         }
 
         return drawerLayout;
+    }
+
+    private void fixAppBarLayout(){
+        if(appBarLayout != null){
+            ((CoordinatorLayout.LayoutParams)appBarLayout.getLayoutParams()).setBehavior(
+                    new AppBarLayoutBahavior()
+            );
+        }
     }
 
     @SuppressWarnings("unchecked")

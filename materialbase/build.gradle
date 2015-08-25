@@ -28,5 +28,5 @@ dependencies {
     compile 'com.android.support:design:23.0.0'
     compile 'com.android.support:recyclerview-v7:23.0.0'
 
-    compile 'com.github.trbnb:AccountNavigationView:v1.0'
+    compile 'com.github.trbnb:AccountNavigationView:f5effa2159'
 }

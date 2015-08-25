@@ -8,7 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.View;
 
-import de.trbnb.library.AccountNavigationView;
+import de.trbnb.accountnavigationview.AccountNavigationView;
 import de.trbnb.materialbase.DrawerLockMode;
 import de.trbnb.materialbase.R;
 import de.trbnb.materialbase.fragments.MaterialFragment;

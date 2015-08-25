@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"/>
 
-    <de.trbnb.library.AccountNavigationView
+    <de.trbnb.accountnavigationview.AccountNavigationView
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
