@@ -4,12 +4,7 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:icon="@drawable/abc_btn_rating_star_on_mtrl_alpha"
         android:theme="@style/AppTheme">
-
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"/>
 
         <activity
             android:name=".TestActivity"

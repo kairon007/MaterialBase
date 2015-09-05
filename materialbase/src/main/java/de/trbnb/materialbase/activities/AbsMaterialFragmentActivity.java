@@ -32,7 +32,7 @@ import de.trbnb.materialbase.fragments.MaterialFragment;
 /**
  * Created by thorben on 20.07.15.
  */
-public abstract class BaseMaterialFragmentActivity<T extends MaterialFragment> extends AppCompatActivity {
+public abstract class AbsMaterialFragmentActivity<T extends MaterialFragment> extends AppCompatActivity {
 
     private T fragment;
 

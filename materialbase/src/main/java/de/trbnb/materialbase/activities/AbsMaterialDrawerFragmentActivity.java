@@ -16,8 +16,8 @@ import de.trbnb.materialbase.fragments.MaterialFragment;
 /**
  * Created by Thorben on 13.08.2015.
  */
-public abstract class BaseMaterialDrawerFragmentActivity<T extends MaterialFragment>
-    extends BaseMaterialFragmentActivity<T> {
+public abstract class AbsMaterialDrawerFragmentActivity<T extends MaterialFragment>
+    extends AbsMaterialFragmentActivity<T> {
 
     private DrawerLayout navigationDrawer;
     private AccountNavigationView navigationView;

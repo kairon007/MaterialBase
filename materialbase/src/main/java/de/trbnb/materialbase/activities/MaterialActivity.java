@@ -5,7 +5,7 @@ import de.trbnb.materialbase.fragments.MaterialFragment;
 /**
  * Created by Thorben on 12.08.2015.
  */
-public class MaterialActivity extends BaseMaterialFragmentActivity<MaterialFragment> {
+public class MaterialActivity extends AbsMaterialFragmentActivity<MaterialFragment> {
 
     @Override
     protected MaterialFragment onCreateNewFragment() {
